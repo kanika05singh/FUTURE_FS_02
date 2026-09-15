@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Client Lead Management System — Mini CRM
 
 A full-stack CRM for managing sales leads end to end: capture a lead, track it through
@@ -145,3 +146,6 @@ All `/api/leads` and `/api/dashboard` routes require authentication. Responses f
 - Email notifications on status change
 
 
+=======
+# FUTURE_FS_02
+>>>>>>> b65a3bb7feec65e001ff6587ae282cb8d7aa6522
