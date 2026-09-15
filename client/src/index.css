@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+@import '@fontsource/fraunces/600.css';
+@import '@fontsource/fraunces/600-italic.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+
+@theme {
+  /* Type */
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Brand: forest green (growth / conversion) + gold accent */
+  --color-brand-50: #eef4f0;
+  --color-brand-100: #d3e4d8;
+  --color-brand-300: #7ba98c;
+  --color-brand-500: #2f6b4c;
+  --color-brand-600: #1f4d3a;
+  --color-brand-700: #16382a;
+  --color-brand-900: #0c211a;
+
+  --color-gold-100: #f6e9c9;
+  --color-gold-300: #e3bd63;
+  --color-gold-500: #c9962b;
+  --color-gold-600: #a67a1f;
+
+  /* Status rail colors */
+  --color-status-new: #4c5fd9;
+  --color-status-new-bg: #eceeff;
+  --color-status-contacted: #a67a1f;
+  --color-status-contacted-bg: #f8ecd1;
+  --color-status-converted: #1f4d3a;
+  --color-status-converted-bg: #e3ede7;
+
+  --color-danger: #b3261e;
+  --color-danger-bg: #fbe9e8;
+
+  /* Neutrals */
+  --color-ink: #14231c;
+  --color-ink-muted: #5b6b60;
+  --color-ink-faint: #8a988e;
+  --color-paper: #f6f7f4;
+  --color-border: #e1e5df;
+}
+
+html {
+  font-feature-settings: 'tnum' 1;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Visible keyboard focus everywhere, per accessibility floor */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-fade-in {
+  from { opacity: 0; transform: scale(0.96) translateY(4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 180ms ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-toast-in {
+  animation: toast-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.toast-leaving {
+  opacity: 0;
+  transform: translateY(-4px) scale(0.98);
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
